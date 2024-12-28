@@ -49,7 +49,7 @@ def transformar_e_abrir_relatorio_responsys(df:str,agg:str)->str:
     return df2
 
 if __name__ == "__main__":
-    df = criar_df_skip_rows('unionv2')
-    df = df[(df["Campaign"] != '0') or (df["Campaign"] != 'Rows 1 - 2958 (All Rows)')]
-    df2= transformar_e_abrir_relatorio_responsys(df,"Campaign")
-    df2.to_csv("teste_df_3_.csv",index=False,header=True)
+    df = criar_df_skip_rows('relatorio_responsys')
+    df = df[(df["Campaign"] != 0) & (df["Campaign"] != 'Rows 1 - 2958 (All Rows)') & (df["Campaign"] != "Campaign")]
+    #df2= transformar_e_abrir_relatorio_responsys(df,"Campaign")
+    df.to_csv("teste_df_3_.csv",index=False,header=True)
